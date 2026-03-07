@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* ─── Custom Design Tokens ─────────────────────────────────────────── */
+@theme {
+  /* Color Palette */
+  --color-navy-950: #040d21;
+  --color-navy-900: #070f2b;
+  --color-navy-800: #0d1b4b;
+  --color-navy-700: #112266;
+
+  --color-violet-500: #7c3aed;
+  --color-violet-400: #9f5cf7;
+  --color-violet-300: #c084fc;
+
+  --color-neon-blue: #3b82f6;
+  --color-neon-cyan: #06b6d4;
+  --color-soft-violet: #a78bfa;
+
+  /* Font Families */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  --gradient-glow: linear-gradient(135deg, #9f5cf7 0%, #06b6d4 100%);
+  --gradient-dark: linear-gradient(180deg, #040d21 0%, #070f2b 100%);
+}
+
+/* ─── Global Base Styles ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-navy-950);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+
+/* ─── Typography System ─────────────────────────────────────────────── */
+/* Hero Heading */
+.text-hero {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Section Heading */
+.text-section {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Subheading */
+.text-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Body Text */
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* Small Caption */
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+/* ─── Gradient Text Utility ─────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-glow {
+  background: var(--gradient-glow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Layout System ─────────────────────────────────────────────────── */
+.container-site {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-site {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ─── Section Spacing ───────────────────────────────────────────────── */
+.section-spacing {
+  padding-block: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-block: 7.5rem;
+  }
+}
+
+/* ─── Glass Card Effect ─────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+/* ─── Glow Button ───────────────────────────────────────────────────── */
+.btn-glow {
+  background: var(--gradient-brand);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.625rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.6),
+    0 0 48px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ─── Scrollbar Styling ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-violet-500);
+  border-radius: 3px;
+}
